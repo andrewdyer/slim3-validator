@@ -18,9 +18,6 @@ class Validator
     /** @var array */
     private $_errors = [];
 
-    /** @var array */
-    private $_params = [];
-
     /**
      * 
      * @return array
@@ -41,20 +38,44 @@ class Validator
 
     /**
      * 
+     * @param string $key
+     * @param array $messages
+     * @return $this
+     */
+    public function setErrors(string $key, array $messages)
+    {
+        $this->_errors[$key] = $messages;
+
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $string
+     * @return string
+     */
+    protected function formatName(string $string)
+    {
+        return str_replace(["-", "_"], " ", ucfirst(strtolower($string)));
+    }
+
+    /**
+     * 
      * @param Request $request
      * @param array $rules
      * @return $this
      */
     public function validate(Request $request, array $rules)
     {
-        foreach ($rules as $param => $validator) {
+        foreach ($rules as $field => $validator) {
             try {
-                $name = str_replace(['-', '_'], ' ', ucfirst(strtolower($param)));
-                $validator->setName($name)->assert($request->getParam($param));
+                $name = $this->formatName($field);
+                $validator->setName($name)->assert($request->getParam($field));
             } catch (NestedValidationException $ex) {
-                $this->_errors[$param] = $ex->getMessages();
+                $this->setErrors($field, $ex->getMessages());
             }
         }
+
         return $this;
     }
 
