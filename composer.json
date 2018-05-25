@@ -1,6 +1,6 @@
 {
     "name": "andrewdyer/slim3-validator",
-    "description": "",
+    "description": "A validation library for the Slim Framework built using Respect/Validation",
     "type": "library",
     "keywords": ["slim", "slim3", "slim-framework"],
     "homepage": "https://github.com/andrewdyer/slim3-validator",
