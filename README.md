@@ -1,5 +1,6 @@
 # Slim3 Validator
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/288ea903a3eb4f18990db20f8358be5d)](https://www.codacy.com/app/andrewdyer/slim3-validator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andrewdyer/slim3-validator&amp;utm_campaign=Badge_Grade)
 [![Latest Stable Version](https://poser.pugx.org/andrewdyer/slim3-validator/version)](https://packagist.org/packages/andrewdyer/slim3-validator)
 [![Total Downloads](https://poser.pugx.org/andrewdyer/slim3-validator/downloads)](https://packagist.org/packages/andrewdyer/slim3-validator)
 [![Latest Unstable Version](https://poser.pugx.org/andrewdyer/slim3-validator/v/unstable)](//packagist.org/packages/andrewdyer/slim3-validator)
