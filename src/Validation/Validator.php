@@ -6,43 +6,36 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Respect\Validation\Exceptions\NestedValidationException;
 
 /**
- * Class Validator
- * 
- * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Validation
- * @see https://github.com/andrewdyer/slim3-validator
+ * Class Validator.
  */
 class Validator
 {
-
     /** @var array */
     private $_errors = [];
 
     /**
-     * 
      * @return array
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->_errors;
     }
 
     /**
-     * 
-     * @return boolean
+     * @return bool
      */
-    public function hasPassed()
+    public function hasPassed(): bool
     {
         return empty($this->_errors);
     }
 
     /**
-     * 
      * @param string $key
-     * @param array $messages
+     * @param array  $messages
+     *
      * @return $this
      */
-    public function setErrors(string $key, array $messages)
+    public function setErrors(string $key, array $messages): self
     {
         $this->_errors[$key] = $messages;
 
@@ -50,22 +43,22 @@ class Validator
     }
 
     /**
-     * 
      * @param string $string
+     *
      * @return string
      */
-    protected function formatName(string $string)
+    protected function formatName(string $string): string
     {
-        return str_replace(["-", "_"], " ", ucfirst(strtolower($string)));
+        return str_replace(['-', '_'], ' ', ucfirst(strtolower($string)));
     }
 
     /**
-     * 
      * @param Request $request
-     * @param array $rules
+     * @param array   $rules
+     *
      * @return $this
      */
-    public function validate(Request $request, array $rules)
+    public function validate(Request $request, array $rules): self
     {
         foreach ($rules as $field => $validator) {
             try {
@@ -78,5 +71,4 @@ class Validator
 
         return $this;
     }
-
 }
