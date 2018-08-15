@@ -31,7 +31,7 @@ $app = new \Slim\App();
 
 $container = $app->getContainer();
 
-$container['validator'] = function ($container) {
+$container['validator'] = function () {
     return new Anddye\Validation\Validator();
 };
 
