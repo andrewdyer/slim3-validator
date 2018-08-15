@@ -27,14 +27,14 @@ Attach a new instance of `Anddye\Validation\Validator` to your applications cont
 it can be accessed anywhere you need.
 
 ```php
-$app = new \Slim\App;
-    
+$app = new \Slim\App();
+
 $container = $app->getContainer();
-       
-$container["validator"] = function($container) {
-    return new Anddye\Validation\Validator;
+
+$container['validator'] = function ($container) {
+    return new Anddye\Validation\Validator();
 };
-    
+
 $app->run();
 ```
 
@@ -44,17 +44,16 @@ where the array key represents the name of the field and the array value represe
 the validation rules:
 
 ```php
-$app->get("/", function (Request $request, Response $response) use($container) {
-    $validation = $container["validator"]->validate($request, [
-        "email" => v::email()->length(1, 254)->notEmpty(),
-        "forename" => v::alpha()->length(1, 100)->notEmpty()->noWhitespace(),
-        "password" => v::length(8, 100)->notEmpty(),
-        "surname" => v::alpha()->length(1, 100)->notEmpty()->noWhitespace(),
-        "username" => v::alnum()->length(1, 32)->notEmpty()->noWhitespace()
+$app->get('/', function (Request $request, Response $response) use ($container) {
+    $validation = $container['validator']->validate($request, [
+        'email' => v::email()->length(1, 254)->notEmpty(),
+        'forename' => v::alpha()->length(1, 100)->notEmpty()->noWhitespace(),
+        'password' => v::length(8, 100)->notEmpty(),
+        'surname' => v::alpha()->length(1, 100)->notEmpty()->noWhitespace(),
+        'username' => v::alnum()->length(1, 32)->notEmpty()->noWhitespace(),
     ]);
 
     // ...
-
 });
 ```
 
@@ -68,7 +67,7 @@ use Respect\Validation\Validator as v;
 You can then check if the validation has passed using the `hasPassed()` method:
 
 ```php
-if(!$validation->hasPassed()) {
+if (!$validation->hasPassed()) {
     // Validation has not passed
 } else {
     // Validation has passed
@@ -79,8 +78,8 @@ If the validation has failed, an array of the validation errors can be accessed
 by calling the `getErrors()` method:
 
 ```php
-foreach($validation->getErrors() as $input => $errors) {
-    foreach($errors as $error) {
+foreach ($validation->getErrors() as $input => $errors) {
+    foreach ($errors as $error) {
         echo $error;
     }
 }
