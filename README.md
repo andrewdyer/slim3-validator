@@ -2,11 +2,11 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/288ea903a3eb4f18990db20f8358be5d)](https://www.codacy.com/app/andrewdyer/slim3-validator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andrewdyer/slim3-validator&amp;utm_campaign=Badge_Grade)
 [![Latest Stable Version](https://poser.pugx.org/andrewdyer/slim3-validator/version)](https://packagist.org/packages/andrewdyer/slim3-validator)
-[![Total Downloads](https://poser.pugx.org/andrewdyer/slim3-validator/downloads)](https://packagist.org/packages/andrewdyer/slim3-validator)
 [![Latest Unstable Version](https://poser.pugx.org/andrewdyer/slim3-validator/v/unstable)](//packagist.org/packages/andrewdyer/slim3-validator)
 [![License](https://poser.pugx.org/andrewdyer/slim3-validator/license)](https://packagist.org/packages/andrewdyer/slim3-validator)
-[![Monthly Downloads](https://poser.pugx.org/andrewdyer/slim3-validator/d/monthly)](https://packagist.org/packages/andrewdyer/slim3-validator)
+[![Total Downloads](https://poser.pugx.org/andrewdyer/slim3-validator/downloads)](https://packagist.org/packages/andrewdyer/slim3-validator)
 [![Daily Downloads](https://poser.pugx.org/andrewdyer/slim3-validator/d/daily)](https://packagist.org/packages/andrewdyer/slim3-validator)
+[![Monthly Downloads](https://poser.pugx.org/andrewdyer/slim3-validator/d/monthly)](https://packagist.org/packages/andrewdyer/slim3-validator)
 [![composer.lock available](https://poser.pugx.org/andrewdyer/slim3-validator/composerlock)](https://packagist.org/packages/andrewdyer/slim3-validator)
 
 A validation library for the Slim Framework built using [Respect/Validation](https://github.com/Respect/Validation).
