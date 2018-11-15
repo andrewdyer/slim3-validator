@@ -2,23 +2,31 @@
 
 namespace Anddye\Validation;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\RequestInterface as Request;
 use Respect\Validation\Exceptions\NestedValidationException;
 
 /**
  * Class Validator.
+ *
+ * @author Andrew Dyer <andrewdyer@outlook.com>
+ *
+ * @category Validation
+ *
+ * @see https://github.com/andrewdyer/slim3-validator
  */
 class Validator
 {
-    /** @var array */
-    private $_errors = [];
+    /**
+     * @var array
+     */
+    private $errors = [];
 
     /**
      * @return array
      */
     public function getErrors(): array
     {
-        return $this->_errors;
+        return $this->errors;
     }
 
     /**
@@ -26,43 +34,33 @@ class Validator
      */
     public function hasPassed(): bool
     {
-        return empty($this->_errors);
+        return empty($this->errors);
     }
 
     /**
-     * @param string $key
+     * @param string $field
      * @param array  $messages
      *
-     * @return $this
+     * @return Validator
      */
-    public function setErrors(string $key, array $messages): self
+    public function setErrors(string $field, array $messages): self
     {
-        $this->_errors[$key] = $messages;
+        $this->errors[$field] = $messages;
 
         return $this;
-    }
-
-    /**
-     * @param string $string
-     *
-     * @return string
-     */
-    protected function formatName(string $string): string
-    {
-        return str_replace(['-', '_'], ' ', ucfirst(strtolower($string)));
     }
 
     /**
      * @param Request $request
      * @param array   $rules
      *
-     * @return $this
+     * @return Validator
      */
     public function validate(Request $request, array $rules): self
     {
         foreach ($rules as $field => $validator) {
             try {
-                $name = $this->formatName($field);
+                $name = str_replace(['-', '_'], ' ', ucfirst(strtolower($field)));
                 $validator->setName($name)->assert($request->getParam($field));
             } catch (NestedValidationException $ex) {
                 $this->setErrors($field, $ex->getMessages());
