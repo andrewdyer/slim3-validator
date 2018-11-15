@@ -17,9 +17,9 @@
         "source": "https://github.com/andrewdyer/slim3-validator.git"
     },
     "require": {
-        "php": ">=7.1.14",
-        "slim/slim": "^3.10",
-        "respect/validation": "^1.1"
+        "php": ">=7.0.0",
+        "slim/slim": "^3.11.0",
+        "respect/validation": "^1.1.29"
     },
     "autoload": {
         "psr-4": {
