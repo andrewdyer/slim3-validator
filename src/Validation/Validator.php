@@ -8,7 +8,7 @@ use Respect\Validation\Exceptions\NestedValidationException;
 /**
  * Class Validator.
  *
- * @author Andrew Dyer <andrewdyer@outlook.com>
+ * @author Andrew Dyer
  *
  * @category Validation
  *
